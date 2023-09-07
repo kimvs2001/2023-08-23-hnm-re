@@ -1,23 +1,46 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import ProductAll from './page/ProductAll';
+import Login from './page/Login';
+import Navbar from './component/Navbar';
+import { useEffect, useState } from 'react';
+import PrivateRoute from './route/PrivateRoute';
+
+// 1. 전체상품페이지, 로그인, 상품상세페이지
+// 1-1. 네비게이션 바
+// 2. 전체 상품페이지에서는 전체 상품을 볼 수 있다.
+// 3. 로그인 버튼을 누르면 로그인 페이지가 나온다.
+//  상품 디테일을 눌렀지만, 로그인이 되어있지않으면 로그인 페이지
+// 4. 로그인이 되어 있을 경우에는, 상품 디테일 페이지를 볼 수 있다.
+// 5. 로그아웃 버튼을 클릭하면 로그아웃이 된다.
+//  로그아웃이 되면 상품페이지를 볼 수 없다. 다시 로그인 페이지가 보인다.
+// 6. 로그인을 하면 로그아웃이 보인다. 
+// 7. 상품 검색을 할 수 있다.
+
+
+//https://codingnoona.thinkific.com/courses/take/3/lessons/34077319-12-2
+// 완료, 도전과제 수행중. 사이드 바 만들기
+// 참고 자료  : https://github.com/legobitna/hnm-react-router/blob/master/src/App.css
+
 
 function App() {
+
+  const [authenticate,setAuthenticate] = useState(false);
+
+  useEffect(()=>{
+    console.log("aaa,",authenticate);
+  },[authenticate])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar authenticate={authenticate}/>
+      <Routes>
+      <Route path="/" element={<ProductAll/>}/>
+      <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
+      <Route path="/product/:id" element={<PrivateRoute authenticate={authenticate}/>}/>
+
+      </Routes>
+      
     </div>
   );
 }
