@@ -14,40 +14,41 @@ const ProductDetail = () => {
   
   const dispatch = useDispatch();
   
-  const product = useSelector(state=>state.product);
+  const product = useSelector(state=>state.product.productDetail);
   
 
-  const getProductDetail= async()=>{
+  const getProductDetail= ()=>{
     // let url = `http://localhost:5000/products/${id}`
     // let response = await fetch(url);
     // let data = await response.json();
     // console.log('data',data);
     // setProduct(data);
     
-    dispatch(productAction.getProductDetail(id))
+    dispatch(productAction.getProductDetail(id));
   }
   useEffect(()=>{
+    console.log('product Detail.js useEffect');
     getProductDetail();
   },[])
 
+  console.log('productDetail.js : ',product?.img);
+  
   return (
-    
    <Container>
     <Row>
       <Col className='product-img'>
         <img src={product?.img}/>
       </Col>
-      <Col>
-      <div>{product?.title}</div>
-      <div>{product?.price}</div>
-      <div>{product?.choice?"Conscious choice":""}</div>
-      <DropdownButton id="dropdown-basic-button" title="사이즈 선택">
-        {product?.size.map((item)=><Dropdown.Item>{item}</Dropdown.Item>)}
-      
-    </DropdownButton>
-    <div className="d-grid gap-2 my-button">
-    <Button variant="dark">추가</Button>
-    </div>
+      <Col className='product-detail-col'>
+        <h2>{product?.title}</h2>
+        <div  className='product-price product-detail-left-margin produc-detail-bot-margin'>₩{product?.price}</div>
+        <div className='product-detail-left-margin produc-detail-bot-margin'>{product?.choice?"Conscious choice":""}</div>
+        <DropdownButton variant='danger' id="dropdown-basic-button" title="사이즈 선택" className='product-sizes product-detail-left-margin produc-detail-bot-margin'>
+          {product?.sizes?.map((item)=><Dropdown.Item>{item}</Dropdown.Item>)}
+        </DropdownButton>
+        <div className="d-grid gap-2 my-button product-detail-left-margin produc-detail-bot-margin">
+          <Button variant="secondary" className='prouct-add-button'>추가</Button>
+        </div>
       </Col>
     </Row>
    </Container>

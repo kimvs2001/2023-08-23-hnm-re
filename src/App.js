@@ -18,10 +18,10 @@ import PrivateRoute from './route/PrivateRoute';
 // 7. 상품 검색을 할 수 있다.
 
 
-//https://codingnoona.thinkific.com/courses/take/3/lessons/34077319-12-2
-// 완료, 도전과제 수행중. 사이드 바 만들기
-// 참고 자료  : https://github.com/legobitna/hnm-react-router/blob/master/src/App.css
-
+//https://codingnoona.thinkific.com/courses/take/3/lessons/34209183-6
+// 10.리덕스 미들웨어, 총정리 완료
+// 로그아웃 리덕스 완료
+// mini 과제 해야함
 
 function App() {
 

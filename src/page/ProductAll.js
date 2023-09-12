@@ -8,7 +8,7 @@ import { productAction } from '../redux/actions/productAction';
 const ProductAll = () => {
 
   // const [productList,setProductList] = useState([]);
-  const productList = useSelector(state=>state.productList);
+  const productList = useSelector(state=>state.product.productList);
   const [query,setQuery] = useSearchParams();
   const dispatch = useDispatch();
   const getProducts=  ()=>{
@@ -34,7 +34,7 @@ const ProductAll = () => {
       <Container>
         <Row>
           
-          {productList.map((item)=><Col lg={3}> <ProductCard item={item}/> </Col>)}
+          {productList?.map((item)=><Col lg={3}> <ProductCard item={item}/> </Col>)}
 
         </Row>
 

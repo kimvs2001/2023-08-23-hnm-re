@@ -18,11 +18,11 @@
 .menu-list li{
   padding: 10px;
 }
+
 .menu-area{
   display: flex;
   justify-content: center;
 }
-
 
 .search-area{
   position: relative;
@@ -34,13 +34,14 @@
 
 .logo{
   cursor: pointer;
+  margin: 15px;
 }
 
 .nav-header *{
   margin-right:10px;
   margin-top: 20px;
-
 }
+
 .burger-menu{
   margin-left:20px;
 }
@@ -62,7 +63,6 @@
 
   }
 }
-
 
 .side-menu{
   height:100%;
@@ -94,7 +94,6 @@
   background: none;
 }
 
-
 .side-menu-list {
   display:flex;
   flex-direction: column;
@@ -104,4 +103,30 @@
 .side-menu-list button:hover {
   background-color: beige;
   border-radius: 3px;
+}
+
+.product-price{
+  font-family: Georgia;
+  font-size: 22px;
+}
+
+.prouct-add-button{
+ 
+ /* display: flex; */
+ position: absolute;
+ bottom: 0;
+ right:0;
+}
+
+.product-detail-col{
+  position: relative;
+}
+
+
+.product-detail-left-margin{
+  margin-left: 20px;
+}
+
+.produc-detail-bot-margin{
+  margin-bottom: 20px;
 }
