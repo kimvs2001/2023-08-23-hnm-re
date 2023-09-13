@@ -21,7 +21,8 @@ import PrivateRoute from './route/PrivateRoute';
 //https://codingnoona.thinkific.com/courses/take/3/lessons/34209183-6
 // 10.리덕스 미들웨어, 총정리 완료
 // 로그아웃 리덕스 완료
-// mini 과제 해야함
+// mini 과제 완료
+// 최신리덕스 redux toolkit 으로 코드 변경
 
 function App() {
 
